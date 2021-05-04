@@ -82,7 +82,7 @@ const manageWindow = async () => {
     resizable: !store.get('positionLocked'),
     movable: !store.get('positionLocked'),
     fullscreenable: !store.get('showOnAllWorkspaces'),
-    visibleOnAllWorkspaces: store.get('showOnAllWorkspaces'),
+    // visibleOnAllWorkspaces: store.get('showOnAllWorkspaces'), not sure why this doesn't work, commenting out for now
     show: false, // Use 'ready-to-show' event to show window
     webPreferences: {
       preload: join(__dirname, '../../preload/dist/index.cjs'),
