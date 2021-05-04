@@ -2,7 +2,7 @@
   <webview
     id="web-view"
     src="https://app.plex.tv/desktop"
-    autosize="on"
+    autosize
   />
 </template>
 
