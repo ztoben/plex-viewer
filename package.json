@@ -1,5 +1,5 @@
 {
-  "name": "plex-viewer",
+  "name": "vite-electron-builder",
   "private": true,
   "engines": {
     "node": ">=v14.16",
