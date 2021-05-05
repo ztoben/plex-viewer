@@ -1,39 +1,42 @@
-# Vite Electron Builder Boilerplate v2
+# plex-viewer
 
-[![GitHub issues by-label](https://img.shields.io/github/issues/cawa-93/vite-electron-builder/help%20wanted?label=issues%20need%20help&logo=github)](https://github.com/cawa-93/vite-electron-builder/issues?q=label%3A%22help+wanted%22+is%3Aopen+is%3Aissue)
-[![Minimal node version](https://img.shields.io/static/v1?label=node&message=%3E=14.16&logo=node.js&color)](https://nodejs.org/about/releases/)
-[![Minimal npm version](https://img.shields.io/static/v1?label=npm&message=%3E=7.7&logo=npm&color)](https://github.com/npm/cli/releases)
+A simple electron app for viewing plex in it's own window.
 
-> Vite+Electron = 🔥
+<img width="624" alt="screenshot 1" src="https://user-images.githubusercontent.com/4007345/62778281-99748100-ba75-11e9-8357-386f1a2b5ec9.png">
 
-This is a secure template for electron applications. Written following the latest safety requirements, recommendations and best practices.
+## Features
+* Keyboard shortcuts
+* Sticks on top and remembers window location
+* Toggle-able window chrome for a cleaner look
+* Media controls for Play/Pause/Skip/Back
+* Simple player mode for condensed playback windows
+* Quick aspect ratio switching from context menu (4:3 and 16:9)
+* Automatically pause content on minimize
+* Lock window position
+* Change window opacity
+* [OSX only] Show across all workspaces
 
-Under the hood is used [Vite] — super fast, nextgen bundler, and [electron-builder] for compilation.
+<img src="https://i.imgur.com/tlMJxaf.png" alt="simple player mode 1" height="500"/>
 
-
-___
-### Support
-- This template maintained by [Alex Kozack][cawa-93-github]. You can [💖 sponsor him][cawa-93-sponsor] for continued development of this template.
-
-- Found a problem? Pull requests are welcome.
-
-- If you have ideas, questions or suggestions - **Welcome to [discussions](https://github.com/cawa-93/vite-electron-builder/discussions)**. 😊
-___
-
-
+<img width="580" alt="simple player mode 2" src="https://user-images.githubusercontent.com/4007345/62778355-cb85e300-ba75-11e9-9618-c46e730a7323.png">
 
 
-## Get started
-
-Follow these steps to get started with this template:
-
-1. Click the **[Use this template](https://github.com/cawa-93/vite-electron-builder/generate)** button.
-
-That's all you need. 😉
-
-**Note**: This template uses npm v7 feature — [**Installing Peer Dependencies Automatically**](https://github.com/npm/rfcs/blob/latest/implemented/0025-install-peer-deps.md). If you are using a different package manager, you may need to install some peerDependencies manually.
+## Shortcuts
+* Toggle minimize - `Shift + Ctrl + X`
+* Toggle window frame (chrome) - `Shift + Ctrl + Z`
+* Navigate back - `Shift + Ctrl + ←`
+* Navigate forward - `Shift + Ctrl + →`
+* Simple player mode - `Shift + Ctrl + M`
 
 
+## Todo
+* ~~Persistent settings~~
+* Keyboard shortcut editor/viewer
+* ~~Keyboard shortcut for pause/play/mute~~
+* ~~Auto pause on minimize~~
+* ~~Hide/show top navigation~~
+* Custom background colors
+* Headphone controls
 
 
 ## Features
@@ -51,14 +54,6 @@ That's all you need. 😉
 Vite provides you with many useful features, such as: `TypeScript`, `TSX/JSX`, `CSS/JSON Importing`, `CSS Modules`, `Web Assembly` and much more.
 
 [See all Vite features](https://vitejs.dev/guide/features.html).
-
-
-### TypeScript [![TypeScript version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/typescript?label=%20)][typescript] (optional)
-- The Latest TypeScript is used for all source code. 
-- **Vite** supports TypeScript out of the box. However, it does not support type checking.
-- Code formatting rules follow the latest TypeScript recommendations and best practices thanks to [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).
-
-**Note**: If you do not need a TypeScript, you can easily abandon it. To do this, You do not need to make any bundler configuration changes, etc. Just replace all `.ts` files with `.js` files. Additionally, it will be useful to delete TS-specific files, plug-ins and dependencies like `tsconfig.json`, `@typescript-eslint/*`, etc.
 
 
 ### Vue [![Vue version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/vue?label=%20)][vue] (optional)
@@ -84,25 +79,6 @@ See [examples of web pages for different frameworks](https://github.com/vitejs/v
   - Notes are automatically generated and added to the release draft.
   - Code signing supported. See [`compile` job in `release` workflow](.github/workflows/release.yml).
 - **Auto-update is supported**. After the release will be published, all client applications will download the new version and install updates silently.
-
-
-## Status
-
-This template was created to make my work easier. It may not be universal, but I try to keep it that way.
-
-I am actively involved in its development. But I do not guarantee that this template will be maintained in the future.
-
-
-**At the moment, there are the following problems:**
-
-- ⚠ Some files require refactoring.
-- ⚠ Typechecking `renderer` package in CI implemented by [![vue-tsc](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/vue-tsc)][vue-tsc], which has a very early version. This is not a problem if you do not use Vue or TypeScript.
-- ⚠ Release notes are created automatically based on commit history. [`.github/actions/release-notes`](.github/actions/release-notes) is used for generation. It may not provide some scenarios. If you encounter a problem - write about it.
-- ⏳ I want to migrate all code base to ESM. But because Nodejs  ecosystem is unprepared I have not known whether this will give more benefits or more inconvenience.
-
-Some improvement or problems can be listed in [issues](https://github.com/cawa-93/vite-electron-builder/issues).
-
-**Pull requests are welcome**.
 
 ## How it works
 The template required a minimum [dependencies](package.json). Only **Vite** is used for building, nothing more.
@@ -132,72 +108,3 @@ Next step is run  packaging and compilation a ready for distribution Electron ap
 To do this, using the [electron-builder]:
 - In npm script `compile`: This script is configured to compile the application as quickly as possible. It is not ready for distribution, is compiled only for the current platform and is used for debugging.
 - In GitHub Action: The application is compiled for any platform and ready-to-distribute files are automatically added to the draft GitHub release. 
-
-
-### Using Node.js API in renderer
-According to [Electron's security guidelines](https://www.electronjs.org/docs/tutorial/security#2-do-not-enable-nodejs-integration-for-remote-content), Node.js integration is disabled for remote content. This means that **you cannot call any Node.js api in the `packages/renderer` directly**. To do this, you **must** describe the interface in the `packages/preload` where Node.js api is allowed:
-```ts
-// packages/preload/src/index.ts
-import {readFile} from 'fs/promises'
-
-const api = {
-  readConfig: () =>  readFile('/path/to/config.json', {encoding: 'utf-8'}),
-}
-
-contextBridge.exposeInMainWorld('electron', api)
-```
-
-```ts
-// packages/renderer/src/App.vue
-import {useElectron} from '/@/use/electron'
-
-const {readConfig} = useElectron()
-```
-
-[Read more about Security Considerations](https://www.electronjs.org/docs/tutorial/context-isolation#security-considerations).
-
-**Note**: Context isolation disabled for `test` environment. See [#693](https://github.com/electron-userland/spectron/issues/693#issuecomment-747872160).
-
-
-
-### Modes and Environment Variables
-All environment variables set as part of the `import.meta`, so you can access them as follows: `import.meta.env`. 
-
-You can also build type definitions of your variables by running `scripts/buildEnvTypes.js`. This command will create `types/env.d.ts` file with describing all environment variables for all modes.
-
-The mode option is used to specify the value of `import.meta.env.MODE` and the corresponding environment variables files that needs to be loaded.
-
-By default, there are two modes:
-  - `production` is used by default
-  - `development` is used by `npm run watch` script
-  - `test` is used by `npm test` script
-
-When running building, environment variables are loaded from the following files in your project root:
-
-```
-.env                # loaded in all cases
-.env.local          # loaded in all cases, ignored by git
-.env.[mode]         # only loaded in specified env mode
-.env.[mode].local   # only loaded in specified env mode, ignored by git
-```
-
-**Note:** only variables prefixed with `VITE_` are exposed to your code (e.g. `VITE_SOME_KEY=123`) and `SOME_KEY=123` will not.  you can access `VITE_SOME_KEY` using `import.meta.env.VITE_SOME_KEY`. This is because the `.env` files may be used by some users for server-side or build scripts and may contain sensitive information that should not be exposed in code shipped to browsers.
-
-
-
-## Contribution
-
-See [Contributing Guide](contributing.md).
-
-
-[vite]: https://github.com/vitejs/vite/
-[electron]: https://github.com/electron/electron
-[electron-builder]: https://github.com/electron-userland/electron-builder
-[vue]: https://github.com/vuejs/vue-next
-[vue-router]: https://github.com/vuejs/vue-router-next/
-[typescript]: https://github.com/microsoft/TypeScript/
-[spectron]: https://github.com/electron-userland/spectron
-[vue-tsc]: https://github.com/johnsoncodehk/vue-tsc
-[eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
-[cawa-93-github]: https://github.com/cawa-93/
-[cawa-93-sponsor]: https://www.patreon.com/Kozack/
