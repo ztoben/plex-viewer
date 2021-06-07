@@ -55,6 +55,6 @@
     "electron-updater": "^4.3.9",
     "electron-window-state": "5.0.3",
     "vue": "^3.0.11",
-    "vue-router": "^4.0.6"
+    "vue-router": "^4.0.8"
   }
 }
