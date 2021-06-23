@@ -4,6 +4,7 @@
     ":semanticCommits",
     ":automergeTypes"
   ],
+  "ignoreDeps": ["vue", "vue-router", "vue-tsc", "eslint-plugin-vue", "@vitejs/plugin-vue"],
   "labels": [
     "dependencies"
   ],
